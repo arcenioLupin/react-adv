@@ -14,7 +14,13 @@ export const MySelect = ( { label, ...props} : Props ) => {
     return (
     <>
         <label htmlFor={props.id || props.name }>{label}</label>
-        <select {...field } {...props }/>
+        <select {...field } {...props }>
+          <option value="">Seleccione un valor</option>
+          {
+            props.options.map((op: any) => <option key={op.id} value={op.id}>{op.label}</option>)
+          }
+           
+          </select>
         <ErrorMessage name={props.name} component="span"/>       
     </>
   )
